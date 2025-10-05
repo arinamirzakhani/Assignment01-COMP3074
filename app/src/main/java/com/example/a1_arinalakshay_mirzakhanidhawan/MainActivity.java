@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         String hoursStr = etHours.getText().toString().trim();
         String rateStr  = etRate.getText().toString().trim();
 
-        // Basic validation
+
         if (TextUtils.isEmpty(hoursStr)) {
             etHours.setError("Enter hours");
             Toast.makeText(this, "Please enter number of hours.", Toast.LENGTH_SHORT).show();
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        // More validation rules
+
         if (hours < 0) {
             etHours.setError("Cannot be negative");
             Toast.makeText(this, "Hours cannot be negative.", Toast.LENGTH_SHORT).show();
