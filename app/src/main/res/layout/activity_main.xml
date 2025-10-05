@@ -67,5 +67,10 @@
             android:layout_height="wrap_content"
             android:text="Total (after tax): $0.00"
             android:textStyle="bold" />
+        <Button
+            android:id="@+id/btnViewDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View Payments" />
     </LinearLayout>
 </ScrollView>
