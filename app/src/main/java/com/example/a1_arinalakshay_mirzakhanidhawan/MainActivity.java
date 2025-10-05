@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        // Calculations
+
         double regularHours = Math.min(hours, 40.0);
         double overtimeHours = Math.max(0.0, hours - 40.0);
 
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         double tax = grossPay * 0.18;
         double total = grossPay - tax;
 
-        // Show results
+
         tvPay.setText("Pay (regular): " + currency.format(regularPay));
         tvOvertime.setText("Overtime pay: " + currency.format(overtimePay));
         tvGross.setText("Total (gross): " + currency.format(grossPay));
