@@ -1,4 +1,5 @@
 package com.example.a1_arinalakshay_mirzakhanidhawan;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Button;
@@ -9,12 +10,29 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.NumberFormat;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static ArrayList<String> historyList = new ArrayList<>();
     private EditText etHours, etRate;
     private TextView tvPay, tvOvertime, tvGross, tvTax, tvTotal;
     private final NumberFormat currency = NumberFormat.getCurrencyInstance();
+
+    @Override
+    public boolean onCreateOptionsMenu(android.view.Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(android.view.MenuItem item) {
+        if (item.getItemId() == R.id.action_details) {
+            startActivity(new android.content.Intent(this, DetailActivity.class));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +116,16 @@ public class MainActivity extends AppCompatActivity {
         double tax = grossPay * 0.18;
         double total = grossPay - tax;
 
+        // Add to history
+        //Todo add date/time, and new line for each entry
+        historyList.add(
+                "Hours " + hours + " @ " + currency.format(rate) +
+                        " | Reg " + currency.format(regularPay) +
+                        " • OT " + currency.format(overtimePay) +
+                        " • Gross " + currency.format(grossPay) +
+                        " • Tax " + currency.format(tax)
+        );
+
         // Show results
         tvPay.setText("Pay (regular): " + currency.format(regularPay));
         tvOvertime.setText("Overtime pay: " + currency.format(overtimePay));
@@ -106,5 +134,11 @@ public class MainActivity extends AppCompatActivity {
         tvTotal.setText("Total (after tax): " + currency.format(total));
 
         Toast.makeText(this, "Calculated successfully!", Toast.LENGTH_SHORT).show();
+
+        // View Details button
+        Button btnViewDetails = findViewById(R.id.btnViewDetails);
+        btnViewDetails.setOnClickListener(v -> {
+            startActivity(new Intent(this, DetailActivity.class));
+        });
     }
 }
