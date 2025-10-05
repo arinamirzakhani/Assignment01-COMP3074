@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Hours cannot be negative.", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (hours > 168) { // > 1 week of hours is unlikely
+        if (hours > 168) {
             etHours.setError("Unrealistic hours");
             Toast.makeText(this, "Please enter realistic weekly hours.", Toast.LENGTH_SHORT).show();
             return;
