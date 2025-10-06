@@ -17,7 +17,11 @@
             android:inputType="numberDecimal"
             android:hint="Number of hours worked"
             android:padding="10dp"
-            android:layout_marginTop="4dp" />
+            android:layout_marginTop="4dp"
+            android:imeOptions="actionNext"
+            android:nextFocusForward="@id/etRate"
+            android:digits="0123456789."
+            android:maxLength="6" />
 
         <EditText
             android:id="@+id/etRate"
@@ -26,7 +30,10 @@
             android:inputType="numberDecimal"
             android:hint="Hourly rate ($)"
             android:padding="10dp"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:imeOptions="actionDone"
+            android:digits="0123456789."
+            android:maxLength="6" />
 
         <Button
             android:id="@+id/btnCalculate"
