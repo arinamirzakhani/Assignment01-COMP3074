@@ -88,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        // More validation rules
         if (hours < 0) {
             etHours.setError("Cannot be negative");
             etHours.requestFocus();
@@ -101,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Please enter hours worked (greater than 0).", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (hours > 168) { // > 1 week of hours is unlikely
+        if (hours > 168) {
             etHours.setError("Unrealistic hours");
             etHours.requestFocus();
             Toast.makeText(this, "Please enter realistic weekly hours.", Toast.LENGTH_SHORT).show();
@@ -126,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        // Calculations
+        // Calculate
         double regularHours = Math.min(hours, 40.0);
         double overtimeHours = Math.max(0.0, hours - 40.0);
 

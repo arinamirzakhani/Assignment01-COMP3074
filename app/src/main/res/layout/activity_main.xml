@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#F7F8FA">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -21,7 +22,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="16dp"
+            android:layout_margin="12dp"
+            android:background="#FFFFFF">
+
+            <TextView
+                android:id="@+id/tvHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pay Calculator"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#202124"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:gravity="center" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp"
+                android:background="#3F51B5" />
 
             <!-- Input Section -->
             <TextView
@@ -33,69 +55,78 @@
                 android:paddingBottom="8dp"
                 android:textColor="?attr/colorPrimary" />
 
-            <com.google.android.material.textfield.TextInputLayout
+            <EditText
+                android:id="@+id/etHours"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/number_of_hours_worked"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+                android:inputType="numberDecimal"
+                android:hint="Number of hours worked"
+                android:padding="12dp"
+                android:layout_marginTop="4dp"
+                android:imeOptions="actionNext"
+                android:nextFocusForward="@id/etRate"
+                android:digits="0123456789."
+                android:maxLength="6"
+                android:textColor="#202124"
+                android:textColorHint="#9AA0A6"
+                android:backgroundTint="#3F51B5" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etHours"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:maxLines="1"
-                    android:textColorHint="#546E7A" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
+            <EditText
+                android:id="@+id/etRate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hourly_rate"
-                android:layout_marginTop="8dp"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+                android:inputType="numberDecimal"
+                android:hint="Hourly rate ($)"
+                android:padding="12dp"
+                android:layout_marginTop="10dp"
+                android:imeOptions="actionDone"
+                android:digits="0123456789."
+                android:maxLength="6"
+                android:textColor="#202124"
+                android:textColorHint="#9AA0A6"
+                android:backgroundTint="#3F51B5" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etRate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:maxLines="1"
-                    android:textColorHint="#546E7A" />
-            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/btnCalculate"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/calculate"
+                android:layout_height="48dp"
+                android:text="Calculate"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
                 android:layout_marginTop="16dp"
-                android:paddingVertical="12dp" />
+                android:backgroundTint="#3F51B5" />
 
             <!-- Results Section -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#E0E0E0"
-                android:layout_marginVertical="16dp" />
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="10dp"
+                android:background="#E0E0E0" />
+
 
             <TextView
+                android:id="@+id/tvResultsHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/payment_details"
-                android:textSize="18sp"
+                android:text="Results"
                 android:textStyle="bold"
-                android:paddingBottom="8dp"
-                android:textColor="?attr/colorPrimary" />
+                android:textSize="14sp"
+                android:textColor="#5F6368"
+                android:paddingBottom="4dp" />
 
             <TextView
                 android:id="@+id/tvPay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/pay_regular_default"
+                android:text="Pay (regular): $0.00"
                 android:textStyle="bold"
                 android:textSize="16sp"
-                android:paddingVertical="4dp" />
+                android:fontFamily="monospace"
+                android:textColor="#202124"
+                android:paddingTop="6dp"
+                android:lineSpacingExtra="2dp" />
 
             <TextView
                 android:id="@+id/tvOvertime"
@@ -105,11 +136,7 @@
                 android:textSize="16sp"
                 android:paddingVertical="4dp" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#E0E0E0"
-                android:layout_marginVertical="8dp" />
+
 
             <TextView
                 android:id="@+id/tvGross"
@@ -124,26 +151,27 @@
                 android:id="@+id/tvTax"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/tax_18_default"
-                android:textSize="16sp"
-                android:textColor="#D32F2F"
-                android:paddingVertical="4dp" />
+                android:text="Tax (18%): $0.00"
+                android:textSize="15sp"
+                android:fontFamily="monospace"
+                android:textColor="#202124"
+                android:paddingTop="2dp"
+                android:lineSpacingExtra="2dp" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#E0E0E0"
-                android:layout_marginVertical="8dp" />
+
 
             <TextView
                 android:id="@+id/tvTotal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/total_after_tax_default"
+                android:text="Total (after tax): $0.00"
                 android:textStyle="bold"
-                android:textSize="18sp"
-                android:textColor="#4CAF50"
-                android:paddingVertical="4dp" />
+                android:textSize="17sp"
+                android:fontFamily="monospace"
+                android:textColor="#202124"
+                android:paddingTop="6dp"
+                android:layout_marginBottom="8dp"
+                android:lineSpacingExtra="2dp" />
 
         </LinearLayout>
     </ScrollView>
