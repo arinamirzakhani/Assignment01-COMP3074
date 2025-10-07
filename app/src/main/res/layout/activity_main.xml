@@ -1,153 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
+    android:orientation="vertical"
     android:background="#F7F8FA">
 
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:layout_margin="12dp"
-        android:background="#FFFFFF">
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="?attr/actionBarTheme" />
 
-        <TextView
-            android:id="@+id/tvHeader"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pay Calculator"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:textColor="#202124"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp"
-            android:gravity="center" />
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_margin="12dp"
+            android:background="#FFFFFF">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="12dp"
-            android:background="#3F51B5" />
+            <TextView
+                android:id="@+id/tvHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pay_calculator"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#202124"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:gravity="center" />
 
-        <EditText
-            android:id="@+id/etHours"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:hint="Number of hours worked"
-            android:padding="12dp"
-            android:layout_marginTop="4dp"
-            android:imeOptions="actionNext"
-            android:nextFocusForward="@id/etRate"
-            android:digits="0123456789."
-            android:maxLength="6"
-            android:textColor="#202124"
-            android:textColorHint="#9AA0A6"
-            android:backgroundTint="#3F51B5" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp"
+                android:background="#3F51B5" />
 
-        <EditText
-            android:id="@+id/etRate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:hint="Hourly rate ($)"
-            android:padding="12dp"
-            android:layout_marginTop="10dp"
-            android:imeOptions="actionDone"
-            android:digits="0123456789."
-            android:maxLength="6"
-            android:textColor="#202124"
-            android:textColorHint="#9AA0A6"
-            android:backgroundTint="#3F51B5" />
+            <!-- Input Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/input_information"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp"
+                android:textColor="?attr/colorPrimary" />
 
-        <Button
-            android:id="@+id/btnCalculate"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="Calculate"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#3F51B5" />
+            <EditText
+                android:id="@+id/etHours"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="@string/number_of_hours_worked"
+                android:padding="12dp"
+                android:layout_marginTop="4dp"
+                android:imeOptions="actionNext"
+                android:nextFocusForward="@id/etRate"
+                android:digits="0123456789."
+                android:maxLength="6"
+                android:textColor="#202124"
+                android:textColorHint="#9AA0A6"
+                android:backgroundTint="#3F51B5" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="10dp"
-            android:background="#E0E0E0" />
+            <EditText
+                android:id="@+id/etRate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="@string/hourly_rate"
+                android:padding="12dp"
+                android:layout_marginTop="10dp"
+                android:imeOptions="actionDone"
+                android:digits="0123456789."
+                android:maxLength="6"
+                android:textColor="#202124"
+                android:textColorHint="#9AA0A6"
+                android:backgroundTint="#3F51B5" />
 
-        <TextView
-            android:id="@+id/tvResultsHeader"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Results"
-            android:textStyle="bold"
-            android:textSize="14sp"
-            android:textColor="#5F6368"
-            android:paddingBottom="4dp" />
 
-        <TextView
-            android:id="@+id/tvPay"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Pay (regular): $0.00"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:fontFamily="monospace"
-            android:textColor="#202124"
-            android:paddingTop="6dp"
-            android:lineSpacingExtra="2dp" />
+            <Button
+                android:id="@+id/btnCalculate"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="@string/calculate"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#3F51B5" />
 
-        <TextView
-            android:id="@+id/tvOvertime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Overtime pay: $0.00"
-            android:textSize="15sp"
-            android:fontFamily="monospace"
-            android:textColor="#202124"
-            android:paddingTop="2dp"
-            android:lineSpacingExtra="2dp" />
+            <!-- Results Section -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="10dp"
+                android:background="#E0E0E0" />
 
-        <TextView
-            android:id="@+id/tvGross"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Total (gross): $0.00"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:fontFamily="monospace"
-            android:textColor="#202124"
-            android:paddingTop="6dp"
-            android:lineSpacingExtra="2dp" />
 
-        <TextView
-            android:id="@+id/tvTax"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tax (18%): $0.00"
-            android:textSize="15sp"
-            android:fontFamily="monospace"
-            android:textColor="#202124"
-            android:paddingTop="2dp"
-            android:lineSpacingExtra="2dp" />
+            <TextView
+                android:id="@+id/tvResultsHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/payment_details"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="#5F6368"
+                android:paddingBottom="4dp" />
 
-        <TextView
-            android:id="@+id/tvTotal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Total (after tax): $0.00"
-            android:textStyle="bold"
-            android:textSize="17sp"
-            android:fontFamily="monospace"
-            android:textColor="#202124"
-            android:paddingTop="6dp"
-            android:layout_marginBottom="8dp"
-            android:lineSpacingExtra="2dp" />
+            <TextView
+                android:id="@+id/tvPay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pay_regular_default"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:fontFamily="monospace"
+                android:textColor="#202124"
+                android:paddingTop="6dp"
+                android:lineSpacingExtra="2dp" />
 
-    </LinearLayout>
-</ScrollView>
+            <TextView
+                android:id="@+id/tvOvertime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/overtime_pay_default"
+                android:textSize="16sp"
+                android:paddingVertical="4dp" />
+
+            <TextView
+                android:id="@+id/tvGross"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/total_gross_default"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:paddingVertical="4dp" />
+
+            <TextView
+                android:id="@+id/tvTax"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tax_18_default"
+                android:textSize="15sp"
+                android:fontFamily="monospace"
+                android:textColor="#202124"
+                android:paddingTop="2dp"
+                android:lineSpacingExtra="2dp" />
+
+
+
+            <TextView
+                android:id="@+id/tvTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/total_after_tax_default"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:fontFamily="monospace"
+                android:textColor="#202124"
+                android:paddingTop="6dp"
+                android:layout_marginBottom="8dp"
+                android:lineSpacingExtra="2dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
