@@ -17,6 +17,7 @@
     <string name="no_entries_yet">No entries yet. Calculate in Main first.</string>
     <string name="view_payments_menu">View Payments</string>
     <string name="input_information">Input Information</string>
-    <string name="payment_details">Payment Details</string>
+    <string name="payment_details">Result</string>
+    <string name="pay_calculator">Pay Calculator</string>
 
 </resources>
