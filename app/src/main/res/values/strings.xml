@@ -1,4 +1,22 @@
 <resources>
-    //Todo add string resource for hardcoded strings
     <string name="app_name">A1_ArinaLakshay_MirzakhaniDhawan</string>
+    <string name="pay_regular">Pay (regular): %1$s</string>
+    <string name="overtime_pay">Overtime pay: %1$s</string>
+    <string name="total_gross">Total (gross): %1$s</string>
+    <string name="tax_18">Tax (18%%): %1$s</string>
+    <string name="total_after_tax">Total (after tax): %1$s</string>
+    <string name="number_of_hours_worked">Number of hours worked</string>
+    <string name="hourly_rate">Hourly rate ($)</string>
+    <string name="calculate">Calculate</string>
+    <string name="pay_regular_default">Pay (regular): $0.00</string>
+    <string name="overtime_pay_default">Overtime pay: $0.00</string>
+    <string name="total_gross_default">Total (gross): $0.00</string>
+    <string name="tax_18_default">Tax (18%): $0.00</string>
+    <string name="total_after_tax_default">Total (after tax): $0.00</string>
+    <string name="view_payments">View Payments</string>
+    <string name="no_entries_yet">No entries yet. Calculate in Main first.</string>
+    <string name="view_payments_menu">View Payments</string>
+    <string name="input_information">Input Information</string>
+    <string name="payment_details">Payment Details</string>
+
 </resources>
