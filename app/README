@@ -1,0 +1,28 @@
+# Pay Calculator App
+
+## Overview
+This Android application calculates an employee’s total weekly pay based on the number of hours worked and the hourly rate.
+It also includes overtime (1.5x pay for hours above 40) and applies a fixed 18% tax to show the total after tax.
+
+---
+
+## Features
+- Input fields for hours worked and hourly rate
+- Calculates:
+  - Regular pay (up to 40 hours)
+  - Overtime pay (over 40 hours at 1.5× rate)
+  - Gross pay (total before tax)
+  - Tax (18%)
+  - Total after tax
+- Input validation for:
+  - Empty or invalid inputs
+  - Negative values
+  - Unrealistic hours (>168)
+- Displays formatted currency results
+- Toast messages for success or input errors
+
+---
+## How It Works
+1. User enters hours and hourly rate.
+2. Clicks “Calculate.”
+3. App validates input and calculates:
